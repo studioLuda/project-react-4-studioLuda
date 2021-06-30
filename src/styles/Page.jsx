@@ -14,10 +14,6 @@ const Header = styled.header({
     },
   },
 });
-const Container = styled.div({
-  width: '90%',
-  margin: '0 auto',
-});
 
 const Title = styled.h2({
   fontSize: '2em',
@@ -25,4 +21,4 @@ const Title = styled.h2({
   padding: '.4em 0',
 });
 
-export { Header, Container, Title };
+export { Header, Title };

@@ -1,11 +1,12 @@
 import { Title } from '../styles/Page';
+import Layout from '../components/Layout';
 
-function HomePage() {
+function CartPage() {
   return (
-    <div>
+    <Layout title="cart">
       <Title> cart </Title>
-    </div>
+    </Layout>
   );
 }
 
-export default HomePage;
+export default CartPage;

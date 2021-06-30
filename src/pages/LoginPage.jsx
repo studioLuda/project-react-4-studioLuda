@@ -1,11 +1,12 @@
 import { Title } from '../styles/Page';
+import Layout from '../components/Layout';
 
-function HomePage() {
+function LoginPage() {
   return (
-    <div>
+    <Layout title="login">
       <Title> login </Title>
-    </div>
+    </Layout>
   );
 }
 
-export default HomePage;
+export default LoginPage;
