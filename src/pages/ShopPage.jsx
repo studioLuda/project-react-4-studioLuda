@@ -24,7 +24,7 @@ function SortOptions() {
     </List>
   );
 }
-function HomePage() {
+function ShopPage() {
   const { items } = shopItems;
 
   return (
@@ -61,4 +61,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default ShopPage;

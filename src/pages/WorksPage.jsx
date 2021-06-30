@@ -1,6 +1,6 @@
 import { Title } from '../styles/Page';
 
-function HomePage() {
+function WorksPage() {
   return (
     <div>
       <Title> works </Title>
@@ -8,4 +8,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default WorksPage;
