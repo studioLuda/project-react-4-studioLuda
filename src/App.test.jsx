@@ -31,7 +31,7 @@ describe('App', () => {
     it('renders the shop page', () => {
       const { container } = renderApp({ path: '/shop/items' });
 
-      expect(container).toHaveTextContent('shop');
+      expect(container).toHaveTextContent('전체 상품');
     });
   });
 
