@@ -4,6 +4,7 @@ const List = styled.ul({
   display: 'flex',
   justifyContent: 'flex-end',
   padding: '1em',
+  margin: 0,
   listStyle: 'none',
 });
 const Item = styled.li({

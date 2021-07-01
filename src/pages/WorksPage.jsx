@@ -1,9 +1,10 @@
 import { Title } from '../styles/Page';
+import Layout from '../components/Layout';
 
 export default function WorksPage() {
   return (
-    <div>
+    <Layout title="works">
       <Title> works </Title>
-    </div>
+    </Layout>
   );
 }

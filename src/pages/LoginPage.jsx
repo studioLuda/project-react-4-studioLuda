@@ -1,9 +1,10 @@
 import { Title } from '../styles/Page';
+import Layout from '../components/Layout';
 
 export default function LoginPage() {
   return (
-    <div>
+    <Layout title="login">
       <Title> login </Title>
-    </div>
+    </Layout>
   );
 }
