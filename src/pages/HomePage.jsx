@@ -1,11 +1,9 @@
 import { Title } from '../styles/Page';
 
-function HomePage() {
+export default function HomePage() {
   return (
     <div>
       <Title> home </Title>
     </div>
   );
 }
-
-export default HomePage;

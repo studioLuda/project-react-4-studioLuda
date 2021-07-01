@@ -1,11 +1,9 @@
 import { Title } from '../styles/Page';
 
-function LoginPage() {
+export default function LoginPage() {
   return (
     <div>
       <Title> login </Title>
     </div>
   );
 }
-
-export default LoginPage;

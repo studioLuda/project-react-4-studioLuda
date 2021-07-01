@@ -1,10 +1,46 @@
 import { Link } from 'react-router-dom';
+import styled from '@emotion/styled';
+
 import { Title } from '../styles/Page';
-import {
-  GridContainer, GridItem, ItemTextGroup, ItemTextSpan,
-} from '../styles/ShopItemsGride';
 import { List, Item } from '../styles/SortOptions';
 import shopItems from '../../dummyDatas/shopItems.json';
+
+const GridContainer = styled.div({
+  display: 'grid',
+  gridAutoFlow: 'row',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(30%, auto))', // 'repeat(3, 1fr)',
+  gridGap: '30px 10px',
+  alignItems: 'center',
+  alignContent: 'space-around',
+  '& a': {
+    textDecoration: 'none',
+  },
+});
+
+const GridItem = styled.div({
+  placeSelf: 'start center',
+  '& p': {
+    width: '265px',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    display: 'block',
+    color: '#333',
+    textDecoration: 'none',
+    textAlign: 'center',
+    fontWeight: 'bolder',
+  },
+});
+
+const ItemTextGroup = styled.div({
+  display: 'flex',
+  justifyContent: 'space-around',
+});
+
+const ItemTextSpan = styled.span(({ color = '#000', fontWeight = 'none' }) => ({
+  color,
+  fontWeight,
+}));
 
 function SortOptions() {
   return (
@@ -24,7 +60,7 @@ function SortOptions() {
     </List>
   );
 }
-function ShopPage() {
+export default function ShopPage() {
   const { items } = shopItems;
 
   return (
@@ -60,5 +96,3 @@ function ShopPage() {
     </div>
   );
 }
-
-export default ShopPage;
