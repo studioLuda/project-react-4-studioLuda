@@ -30,12 +30,12 @@ const ItemTextSpan = styled.span(({ color = '#000', fontWeight = 'none' }) => ({
 
 export default function ShopPageListItem({ item }) {
   const {
-    img, name, realPrice, originPrice,
+    id, img, name, realPrice, originPrice,
   } = item;
 
   return (
     <GridItem>
-      <Link to="/shop/items">
+      <Link to={`/shop/items/${id}`}>
         <img src={img} alt={name} />
         <p>{name}</p>
         <ItemTextGroup>
