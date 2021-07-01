@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 import { List, Item } from '../styles/Menu';
 
-function MenuBar() {
+export default function MenuBar() {
   return (
     <div>
       <List>
@@ -22,5 +22,3 @@ function MenuBar() {
     </div>
   );
 }
-
-export default MenuBar;
