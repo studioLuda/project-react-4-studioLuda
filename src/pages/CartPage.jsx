@@ -1,11 +1,9 @@
 import { Title } from '../styles/Page';
 
-function HomePage() {
+export default function CartPage() {
   return (
     <div>
       <Title> cart </Title>
     </div>
   );
 }
-
-export default HomePage;
