@@ -27,7 +27,7 @@ describe('ShopPageListItem', () => {
   });
 
   context('when click item', () => {
-    it('changes url & moves page', async () => {
+    it('changes url & moves page', () => {
       const history = createMemoryHistory();
       history.push = jest.fn();
 
