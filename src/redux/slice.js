@@ -1,10 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-
+  sortOption: '',
 };
 
-const reducers = {};
+const reducers = {
+  selectSortOption(state, { payload: sortOption }) {
+    return {
+      ...state,
+      sortOption,
+    };
+  },
+};
 
 const { actions, reducer } = createSlice({
   name: 'application',
@@ -13,3 +20,6 @@ const { actions, reducer } = createSlice({
 });
 
 export default reducer;
+export const {
+  selectSortOption,
+} = actions;
