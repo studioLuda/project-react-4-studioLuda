@@ -47,7 +47,7 @@ export default function InfoArea({ shopItem }) {
         <TextSpan color="#f00" fontWeight="bold">
           {`${percentageCalculator({
             total: originPrice,
-            partOf: realPrice,
+            partOf: (originPrice - realPrice),
           })} 할인`}
         </TextSpan>
       </PriceGroup>
