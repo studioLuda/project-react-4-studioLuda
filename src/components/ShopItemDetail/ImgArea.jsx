@@ -23,9 +23,6 @@ export default function ImgArea({ shopItem }) {
   });
   const Previewer = styled.li({
     marginRight: '0.2em',
-    '& a': {
-      textDecoration: 'none',
-    },
     '& img': {
       '&:hover': {
         border: 'solid',
@@ -38,10 +35,8 @@ export default function ImgArea({ shopItem }) {
       <ImgViewer src={`${titleImgs[0]}300`} alt={name} />
       <PreviewGroup>
         {titleImgs.map((img) => (
-          <Previewer>
-            <a href="*">
-              <img src={`${img}40`} alt={name} />
-            </a>
+          <Previewer key={img}>
+            <img src={`${img}40`} alt={name} />
           </Previewer>
         ))}
       </PreviewGroup>

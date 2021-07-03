@@ -47,13 +47,13 @@ export default function InfoArea({ shopItem }) {
         <TextSpan color="#f00" fontWeight="bold">
           {`${percentageCalculator({
             total: originPrice,
-            partOf: (originPrice - realPrice),
+            partOf: originPrice - realPrice,
           })} 할인`}
         </TextSpan>
       </PriceGroup>
       <AmountGruop>
         <label htmlFor="ItemAmount">수량</label>
-        <input id="ItemAmount" type="number" value={1} />
+        <input id="ItemAmount" type="number" defaultValue={1} />
       </AmountGruop>
 
       <button type="button"> 장바구니 담기 </button>

@@ -2,12 +2,13 @@ import styled from '@emotion/styled';
 import { useParams } from 'react-router-dom';
 
 import Layout from '../components/Layout';
-import shopItem from '../../dummyDatas/shopItem.json';
+import { dummyItems } from '../../dummyDatas/shopItems.json';
 import InfoArea from '../components/ShopItemDetail/InfoArea';
 import ImgArea from '../components/ShopItemDetail/ImgArea';
 
 export default function ShopItemDetailPage({ params }) {
   const { id } = params || useParams();
+  const shopItem = dummyItems.find((item) => item.id === Number(id));
   const HeadGroup = styled.div({
     display: 'flex',
     flexDirection: 'row',
