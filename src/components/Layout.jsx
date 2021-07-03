@@ -1,9 +1,23 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import { Header } from '../styles/Page';
+
 import MenuBar from './MenuBar';
 
 function HeaderArea() {
+  const Header = styled.header({
+    backgroundColor: '#EEE',
+    '& h1': {
+      margin: 0,
+      padding: '1em .5em',
+    },
+    '& a': {
+      color: '#555',
+      textDecoration: 'none',
+      '& hover': {
+        color: '#000',
+      },
+    },
+  });
   return (
     <Header>
       <h1>
@@ -31,7 +45,9 @@ function NaviLeftArea({ title = '-', className }) {
       margin: '0.5em 0 0 1em',
     },
   });
-  if (title === 'home') { return null; }
+  if (title === 'home') {
+    return null;
+  }
   return (
     <ContentsBox className={className}>
       <p>{title}</p>
