@@ -14,17 +14,39 @@ function HeaderArea() {
   );
 }
 
-function SubMenu({ title = '-', className }) {
+const BodyArea = styled.main({
+  minWidth: '500px',
+  display: 'flex',
+  flexDerection: 'row',
+});
+
+function NaviLeftArea({ title = '-', className }) {
+  const ContentsBox = styled.div({
+    backgroundColor: '#A3C',
+    width: '15%',
+    position: 'sticky',
+    display: 'block',
+    '& p': {
+      fontSize: '2em',
+      margin: '0.5em 0 0 1em',
+    },
+  });
   if (title === 'home') { return null; }
   return (
-    <div className={className}>
+    <ContentsBox className={className}>
       <p>{title}</p>
-    </div>
+    </ContentsBox>
   );
 }
 
 function ContentsArea({ className, contents }) {
-  return <div className={className}>{contents}</div>;
+  const ContentsBox = styled.div({
+    backgroundColor: 'pink',
+    width: '85%',
+    display: 'block',
+    padding: '5%',
+  });
+  return <ContentsBox className={className}>{contents}</ContentsBox>;
 }
 
 function FooterArea() {
@@ -39,23 +61,6 @@ function FooterArea() {
     </Footer>
   );
 }
-
-const BodyArea = styled.main`
-  /* max-width: 1080px; */
-  min-width : 500px;
-  display: inline-block;
-  background-color: pink;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 20vw auto; /* 각 행(세로줄)의 길이 */
-  grid-template-rows: 80vh; /* 각 열(가로줄)의 길이 */
-  gap: 10px; /* 자식요소간의 간격 */
-`;
-
-const NaviLeftArea = styled(SubMenu)({
-
-  backgroundColor: '#A3C',
-});
 
 export default function Layout({ title = '페이지 제목', className, children }) {
   return (
