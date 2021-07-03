@@ -13,5 +13,5 @@ export function currencyFomater({ number = 0, currency = '원' }) {
 }
 
 export function percentageCalculator({ total = 1, partOf = 1 }) {
-  return `${(partOf / total) * 100}%`;
+  return `${Math.ceil((partOf / total) * 100)}%`;
 }
