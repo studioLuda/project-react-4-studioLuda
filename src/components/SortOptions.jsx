@@ -4,6 +4,27 @@ import styled from '@emotion/styled';
 import Button from './Button';
 import { selectSortOption } from '../redux/slice';
 
+const List = styled.ul({
+  display: 'flex',
+  justifyContent: 'flex-end',
+  padding: '1em',
+  listStyle: 'none',
+});
+
+const Item = styled.li({
+  marginRight: '1em',
+  '& button': {
+    color: '#333',
+    backgroundColor: '#fff',
+    textDecoration: 'none',
+    border: 'none',
+    '&:hover': {
+      color: '#000',
+      fontWeight: 'bold',
+    },
+  },
+});
+
 export default function SortOptions() {
   const dispatch = useDispatch();
 
@@ -17,27 +38,6 @@ export default function SortOptions() {
   function handleClickSortOption({ value }) {
     dispatch(selectSortOption(value));
   }
-
-  const List = styled.ul({
-    display: 'flex',
-    justifyContent: 'flex-end',
-    padding: '1em',
-    listStyle: 'none',
-  });
-
-  const Item = styled.li({
-    marginRight: '1em',
-    '& button': {
-      color: '#333',
-      backgroundColor: '#fff',
-      textDecoration: 'none',
-      border: 'none',
-      '&:hover': {
-        color: '#000',
-        fontWeight: 'bold',
-      },
-    },
-  });
 
   return (
     <List>

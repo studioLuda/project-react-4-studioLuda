@@ -2,35 +2,36 @@ import styled from '@emotion/styled';
 
 import { currencyFomater, percentageCalculator } from '../../util/commonUtils';
 
+const InfoGroup = styled.div({
+  display: 'flex',
+  width: '400px',
+  flexDirection: 'column',
+  flexWrap: 'wrap',
+  justifyContent: 'space-evenly',
+});
+
+const PriceGroup = styled.h2({
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-evenly',
+});
+const TextSpan = styled.span(
+  ({ color = '#000', fontWeight = 'none', lineThrough = false }) => ({
+    color,
+    fontWeight,
+    textDecorationLine: lineThrough ? 'line-through' : 'none',
+  }),
+);
+const AmountGruop = styled.div({
+  display: 'flex',
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  justifyContent: 'space-evenly',
+});
+
 export default function InfoArea({ shopItem }) {
   const { name, realPrice, originPrice } = shopItem;
 
-  const InfoGroup = styled.div({
-    display: 'flex',
-    width: '400px',
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    justifyContent: 'space-evenly',
-  });
-
-  const PriceGroup = styled.h2({
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-  });
-  const TextSpan = styled.span(
-    ({ color = '#000', fontWeight = 'none', lineThrough = false }) => ({
-      color,
-      fontWeight,
-      textDecorationLine: lineThrough ? 'line-through' : 'none',
-    }),
-  );
-  const AmountGruop = styled.div({
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-evenly',
-  });
   return (
     <InfoGroup>
       <h2>{name}</h2>
