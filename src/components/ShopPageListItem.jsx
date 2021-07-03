@@ -51,7 +51,7 @@ export default function ShopPageListItem({ item }) {
           <ItemTextSpan color="#f00" fontWeight="bold">
             {`${percentageCalculator({
               total: originPrice,
-              partOf: realPrice,
+              partOf: originPrice - realPrice,
             })} 할인`}
           </ItemTextSpan>
         </ItemTextGroup>
