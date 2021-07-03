@@ -15,7 +15,7 @@ describe('SortOptions', () => {
       sortOption: '',
     }));
   });
-  it('renders sortOptions', () => {
+  it('renders sort options', () => {
     const { container } = render(<SortOptions />);
 
     expect(container).toHaveTextContent('등록일순');

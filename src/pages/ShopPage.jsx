@@ -1,8 +1,6 @@
-import Layout from '../components/Layout';
+import Layout from '../components/layout/Layout';
 import { Title } from '../styles/Page';
 import ShopContainer from '../components/ShopContainer';
-
-// FIXME : Layout적용시, 전체상품 페이지가 Footer를 넘어가는 현상 해결하기.
 
 export default function ShopPage() {
   return (

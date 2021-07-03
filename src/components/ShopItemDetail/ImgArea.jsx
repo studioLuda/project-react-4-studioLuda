@@ -1,34 +1,34 @@
 import styled from '@emotion/styled';
 
+const ImgGroup = styled.div({
+  display: 'flex',
+  width: '300px',
+  flexDirection: 'column',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+});
+const PreviewGroup = styled.ul({
+  display: 'flex',
+  justifyContent: 'flex-end',
+  padding: '1em',
+  margin: 0,
+  listStyle: 'none',
+});
+
+const ImgViewer = styled.img({
+  width: '300px',
+});
+const Previewer = styled.li({
+  marginRight: '0.2em',
+  '& img': {
+    '&:hover': {
+      border: 'solid',
+    },
+  },
+});
+
 export default function ImgArea({ shopItem }) {
   const { name, titleImgs } = shopItem;
-
-  const ImgGroup = styled.div({
-    display: 'flex',
-    width: '300px',
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-  });
-  const PreviewGroup = styled.ul({
-    display: 'flex',
-    justifyContent: 'flex-end',
-    padding: '1em',
-    margin: 0,
-    listStyle: 'none',
-  });
-
-  const ImgViewer = styled.img({
-    width: '300px',
-  });
-  const Previewer = styled.li({
-    marginRight: '0.2em',
-    '& img': {
-      '&:hover': {
-        border: 'solid',
-      },
-    },
-  });
 
   return (
     <ImgGroup>
