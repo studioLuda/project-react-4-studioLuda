@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export default function ImgArea({ shopItem }) {
-  const { name, titleImgs } = shopItem;
+  const { id, name, titleImgs } = shopItem;
 
   const ImgGroup = styled.div({
     display: 'flex',
@@ -38,8 +38,8 @@ export default function ImgArea({ shopItem }) {
       <ImgViewer src={`${titleImgs[0]}300`} alt={name} />
       <PreviewGroup>
         {titleImgs.map((img) => (
-          <Previewer>
-            <a href="*">
+          <Previewer key={img}>
+            <a href={`/shop/items/${id}`}>
               <img src={`${img}40`} alt={name} />
             </a>
           </Previewer>
