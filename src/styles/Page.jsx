@@ -1,24 +1,10 @@
 import styled from '@emotion/styled';
 
-const Header = styled.header({
-  backgroundColor: '#EEE',
-  '& h1': {
-    margin: 0,
-    padding: '1em .5em',
-  },
-  '& a': {
-    color: '#555',
-    textDecoration: 'none',
-    '& hover': {
-      color: '#000',
-    },
-  },
-});
-
 const Title = styled.h2({
   fontSize: '2em',
   margin: 0,
   padding: '.4em 0',
 });
 
-export { Header, Title };
+const PlainText = styled.p({}); // todo: 기본 텍스트 스타일 정의 및 적용
+export { Title, PlainText };
