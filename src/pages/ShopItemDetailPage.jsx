@@ -1,39 +1,14 @@
-import styled from '@emotion/styled';
 import { useParams } from 'react-router-dom';
 
 import Layout from '../components/layout/Layout';
-import { dummyItems } from '../../dummyDatas/shopItems.json';
-import InfoArea from '../components/ShopItemDetail/InfoArea';
-import ImgArea from '../components/ShopItemDetail/ImgArea';
-
-const HeadGroup = styled.div({
-  display: 'flex',
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-  justifyContent: 'space-around',
-  alignContent: 'center',
-});
-const BodyGroup = styled.div({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  padding: '10% 1% 10% 1%',
-});
+import ItemDetailContainer from '../components/ShopItemDetail/ItemDetailContainer';
 
 export default function ShopItemDetailPage({ params }) {
   const { id } = params || useParams();
-  const shopItem = dummyItems.find((item) => item.id === Number(id));
 
   return (
     <Layout title="상세보기">
-      <HeadGroup>
-        <ImgArea shopItem={shopItem} />
-        <InfoArea shopItem={shopItem} />
-      </HeadGroup>
-      <BodyGroup>
-        <p>{`상품 아이디 ${id} 디테일 컷`}</p>
-        <img src={shopItem.descriptionImg} alt="상품 설명 이미지" />
-      </BodyGroup>
+      <ItemDetailContainer id={id} />
     </Layout>
   );
 }
