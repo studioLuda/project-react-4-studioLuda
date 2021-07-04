@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 import { currencyFomater, percentageCalculator } from '../../util/commonUtils';
+import ItemControler from './ItemControler';
 
 const InfoGroup = styled.div({
   display: 'flex',
@@ -22,14 +23,13 @@ const TextSpan = styled.span(
     textDecorationLine: lineThrough ? 'line-through' : 'none',
   }),
 );
-const AmountGruop = styled.div({
-  display: 'flex',
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-  justifyContent: 'space-evenly',
-});
 
-export default function InfoArea({ shopItem }) {
+export default function InfoArea({
+  shopItem,
+  itemAmount,
+  handleItemAmount,
+  handleAddItemToCart,
+}) {
   const { name, realPrice, originPrice } = shopItem;
 
   return (
@@ -52,12 +52,11 @@ export default function InfoArea({ shopItem }) {
           })} 할인`}
         </TextSpan>
       </PriceGroup>
-      <AmountGruop>
-        <label htmlFor="ItemAmount">수량</label>
-        <input id="ItemAmount" type="number" defaultValue={1} />
-      </AmountGruop>
-
-      <button type="button"> 장바구니 담기 </button>
+      <ItemControler
+        itemAmount={itemAmount}
+        onChange={handleItemAmount}
+        onClick={handleAddItemToCart}
+      />
     </InfoGroup>
   );
 }
