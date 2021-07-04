@@ -132,6 +132,15 @@ function getPrices(mCart) {
 }
 export default function CartPage() {
   const cart = loadObjItem('cart');
+  if (!cart) {
+    return (
+      <Layout title="Cart">
+        <Container>
+          <Notice>장바구니가 비었어요!</Notice>
+        </Container>
+      </Layout>
+    );
+  }
 
   const sumPrices = getSum(getPrices(cart));
   const deliveryFee = sumPrices > 30000 ? 0 : 3000;
