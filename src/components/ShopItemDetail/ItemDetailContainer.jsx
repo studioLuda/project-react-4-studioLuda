@@ -4,10 +4,11 @@ import styled from '@emotion/styled';
 
 import { changeItemAmountField, addItemToCart } from '../../redux/slice';
 import { get } from '../../util/commonUtils';
-import { dummyItems } from '../../../dummyDatas/shopItems.json';
+import shopItems from '../../../dummyDatas/shopItems.json';
 import InfoArea from './InfoArea';
 import ImgArea from './ImgArea';
 
+const { dummyItems } = shopItems;
 const HeadGroup = styled.div({
   display: 'flex',
   flexDirection: 'row',
