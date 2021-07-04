@@ -1,13 +1,13 @@
 import styled from '@emotion/styled';
 
 const ContentsBox = styled.div({
-  backgroundColor: '#A3C',
+  // backgroundColor: '#A3C',//영역 체크용
   width: '15%',
   position: 'sticky',
   display: 'block',
   '& p': {
-    fontSize: '2em',
-    margin: '0.5em 0 0 1em',
+    fontSize: '1.5em',
+    margin: '1.5em 0 0 1.5em',
   },
 });
 
