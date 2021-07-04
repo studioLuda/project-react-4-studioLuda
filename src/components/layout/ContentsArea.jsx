@@ -1,8 +1,9 @@
 import styled from '@emotion/styled';
 
 const ContentsBox = styled.div({
-  backgroundColor: 'pink',
+  // backgroundColor: "pink", //영역 체크용
   width: '85%',
+  minHeight: '100vh',
   display: 'block',
   padding: '5%',
 });
