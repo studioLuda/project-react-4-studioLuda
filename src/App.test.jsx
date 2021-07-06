@@ -1,9 +1,18 @@
 import { MemoryRouter } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { render } from '@testing-library/react';
 
 import App from './App';
 
+jest.mock('react-redux');
 describe('App', () => {
+  const dispatch = jest.fn();
+
+  beforeEach(() => {
+    dispatch.mockClear();
+    useDispatch.mockImplementation(() => dispatch);
+  });
+
   function renderApp({ path }) {
     return render((
       <MemoryRouter initialEntries={[path]}>
@@ -39,7 +48,7 @@ describe('App', () => {
     it('renders the cart page', () => {
       const { container } = renderApp({ path: '/cart' });
 
-      expect(container).toHaveTextContent('cart');
+      expect(container).toHaveTextContent('Cart');
     });
   });
 
