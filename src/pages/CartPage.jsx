@@ -1,11 +1,11 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from '@emotion/styled';
 
-import { useEffect } from 'react';
+import CartContainer from '../components/cart/CartContainer';
 import Layout from '../components/layout/Layout';
 import { get } from '../util/commonUtils';
 import { synchonizeCart } from '../redux/slice';
-import CartContainer from '../components/cart/CartContainer';
 
 const Notice = styled.p({
   color: '#C14',
