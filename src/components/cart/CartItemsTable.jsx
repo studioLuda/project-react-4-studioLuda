@@ -4,11 +4,12 @@ import {
   Thead,
   Tbody,
   DelteButton,
+  Container,
 } from '../../styles/CartPageStyle';
 
 export default function CartItemTable({ cart, onChangeCheckBox, onClickDeleteButton }) {
   return (
-    <div>
+    <Container>
       <Table>
         <Thead>
           <tr>
@@ -42,6 +43,6 @@ export default function CartItemTable({ cart, onChangeCheckBox, onClickDeleteBut
           선택 상품 삭제
         </DelteButton>
       </div>
-    </div>
+    </Container>
   );
 }

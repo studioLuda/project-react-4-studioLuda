@@ -4,6 +4,7 @@ import {
   AmountBox,
   OrderButton,
   Notice,
+  Container,
 } from '../../styles/CartPageStyle';
 
 export default function CartAmountGroup({ cart }) {
@@ -11,7 +12,7 @@ export default function CartAmountGroup({ cart }) {
   const deliveryFee = sumPrices > 30000 ? 0 : 3000;
 
   return (
-    <div>
+    <Container>
       <AmountBoxGruop>
         <AmountBox>
           <p>총 상품 금액</p>
@@ -28,6 +29,6 @@ export default function CartAmountGroup({ cart }) {
       </AmountBoxGruop>
       <OrderButton type="button"> 주문하기</OrderButton>
       <Notice> 30,000원 이하의 주문에는 배송비 3,000원이 추가됩니다.</Notice>
-    </div>
+    </Container>
   );
 }
