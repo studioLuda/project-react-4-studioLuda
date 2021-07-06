@@ -15,3 +15,11 @@ export function currencyFomater({ number = 0, currency = '원' }) {
 export function percentageCalculator({ total = 1, partOf = 1 }) {
   return `${Math.ceil((partOf / total) * 100)}%`;
 }
+
+export function getSum(numbers) {
+  const sum = numbers.reduce((x, y) => x + y, 0);
+  return sum;
+}
+export function getPrices(mCart) {
+  return mCart.map((item) => item.realPrice * item.itemAmount);
+}

@@ -1,22 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import styled from '@emotion/styled';
 
 import CartContainer from '../components/cart/CartContainer';
 import Layout from '../components/layout/Layout';
+import { Notice, Container } from '../styles/CartPageStyle';
 import { get } from '../util/commonUtils';
 import { synchonizeCart } from '../redux/slice';
-
-const Notice = styled.p({
-  color: '#C14',
-});
-
-const Container = styled.div({
-  display: 'flex',
-  alignItems: 'center',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-});
 
 export default function CartPage() {
   const dispatch = useDispatch();
