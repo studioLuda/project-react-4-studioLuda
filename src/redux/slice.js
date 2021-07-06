@@ -24,8 +24,7 @@ const reducers = {
       itemAmount,
     };
   },
-  synchonizeCart(state) {
-    const cart = loadObjItem('cart') || [];
+  setCart(state, { payload: cart }) {
     return {
       ...state,
       cart,
@@ -113,7 +112,14 @@ export const {
   selectSortOption,
   changeItemAmountField,
   addItemToCart,
-  synchonizeCart,
   changeCartItemCheked,
   removeSelectedCartIem,
+  setCart,
 } = actions;
+
+export function synchonizeCart() {
+  return async (dispatch) => {
+    const cart = await loadObjItem('cart') || [];
+    dispatch(setCart(cart));
+  };
+}
