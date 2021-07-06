@@ -1,39 +1,10 @@
-import styled from '@emotion/styled';
-
 import CartItemRow from './CartItemRow';
-
-const Table = styled.table`
-  min-width: 700px;
-  margin-top: 40px;
-  position: relative;
-`;
-const Thead = styled.thead({
-  backgroundColor: '#ccc',
-  height: '40px',
-  fontWeight: 'bold',
-  fontSize: '17px',
-});
-const Tbody = styled.tbody`
-  text-align: center;
-  padding: 10px 0;
-  height: 20px;
-  font-size: 14px;
-`;
-
-const DelteButton = styled.button({
-  backgroundColor: 'gray',
-  color: 'white',
-  fontWeight: 'bold',
-  marginTop: '10px',
-  padding: '0.5rem 1rem',
-  fontSize: '1rem',
-  textAlign: 'center',
-  textDecoration: 'none',
-  display: 'inline-block',
-  width: 'auto',
-  border: 'none',
-  borderRadius: '4px',
-});
+import {
+  Table,
+  Thead,
+  Tbody,
+  DelteButton,
+} from '../../styles/CartPageStyle';
 
 export default function CartItemTable({ cart, onChangeCheckBox, onClickDeleteButton }) {
   return (

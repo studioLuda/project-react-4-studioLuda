@@ -1,16 +1,9 @@
 import { useDispatch } from 'react-redux';
-import styled from '@emotion/styled';
 
 import { changeCartItemCheked, removeSelectedCartIem } from '../../redux/slice';
 import CartItemTable from './CartItemsTable';
 import CartAmountGroup from './CartAmountGroup';
-
-const Container = styled.div({
-  display: 'flex',
-  alignItems: 'center',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
-});
+import { Container } from '../../styles/CartPageStyle';
 
 export default function CartContainer({ cart }) {
   const dispatch = useDispatch();
