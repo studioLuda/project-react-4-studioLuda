@@ -1,8 +1,14 @@
+import { useDispatch, useSelector } from 'react-redux';
 import styled from '@emotion/styled';
-import Layout from '../components/layout/Layout';
 
-import { loadObjItem } from '../services/storage';
-import { currencyFomater } from '../util/commonUtils';
+import { useEffect } from 'react';
+import Layout from '../components/layout/Layout';
+import { currencyFomater, get } from '../util/commonUtils';
+import {
+  changeCartItemCheked,
+  synchonizeCart,
+  removeSelectedCartIem,
+} from '../redux/slice';
 
 const Table = styled.table`
 min-width:700px;
@@ -22,7 +28,7 @@ height: 20px;
 font-size: 14px;
 `;
 
-function ItemRow({ item }) {
+function ItemRow({ item, onChangeCheckBox }) {
   const Item = styled.tr({
     // backgroundColor: 'ivory',
     height: '100px',
@@ -54,11 +60,25 @@ function ItemRow({ item }) {
   });
 
   const {
-    id, name, img, itemAmount, realPrice,
+    id, name, img, itemAmount, realPrice, checked,
   } = item;
   return (
     <Item>
-      <td><input type="checkbox" name={id} value={id} /></td>
+      <td>
+        <label htmlFor={`cartItem${id}`}>
+          <input
+            aria-label={`cartItem${id}`}
+            id={`cartItem${id}`}
+            type="checkbox"
+            name={id}
+            value={id}
+            checked={checked || false}
+            onChange={(event) => {
+              onChangeCheckBox(event);
+            }}
+          />
+        </label>
+      </td>
       <td>
         <div>
           <img src={img} alt={name} />
@@ -69,9 +89,7 @@ function ItemRow({ item }) {
         {itemAmount}
         개
       </td>
-      <td>
-        {currencyFomater({ number: realPrice })}
-      </td>
+      <td>{currencyFomater({ number: realPrice })}</td>
     </Item>
   );
 }
@@ -98,7 +116,6 @@ const AmountBox = styled.div({
   },
 });
 const Button = styled.button({
-  align: 'center',
   backgroundColor: 'tomato',
   color: 'white',
   fontWeight: 'bold',
@@ -109,6 +126,21 @@ const Button = styled.button({
   textDecoration: 'none',
   display: 'inline-block',
   width: '50%',
+  border: 'none',
+  borderRadius: '4px',
+});
+
+const DelteButton = styled.button({
+  backgroundColor: 'gray',
+  color: 'white',
+  fontWeight: 'bold',
+  marginTop: '10px',
+  padding: '0.5rem 1rem',
+  fontSize: '1rem',
+  textAlign: 'center',
+  textDecoration: 'none',
+  display: 'inline-block',
+  width: 'auto',
   border: 'none',
   borderRadius: '4px',
 });
@@ -131,7 +163,13 @@ function getPrices(mCart) {
   return mCart.map((item) => item.realPrice * item.itemAmount);
 }
 export default function CartPage() {
-  const cart = loadObjItem('cart');
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(synchonizeCart());
+  }, []);
+
+  const cart = useSelector(get('cart'));
+
   if (!cart) {
     return (
       <Layout title="Cart">
@@ -142,6 +180,13 @@ export default function CartPage() {
     );
   }
 
+  function onChangeCheckBox(event) {
+    const { target: { value: itemId, checked } } = event;
+    dispatch(changeCartItemCheked({ itemId, checked, cart }));
+  }
+  function onClickDeleteButton() {
+    dispatch(removeSelectedCartIem(cart));
+  }
   const sumPrices = getSum(getPrices(cart));
   const deliveryFee = sumPrices > 30000 ? 0 : 3000;
   return (
@@ -151,7 +196,14 @@ export default function CartPage() {
           <Thead>
             <tr>
               <th>
-                <input type="checkbox" name="checkAll" value="checkAll" />
+                <label htmlFor="checkAll">
+                  <input
+                    type="checkbox"
+                    id="checkAll"
+                    name="checkAll"
+                    value="checkAll"
+                  />
+                </label>
               </th>
               <th>상품정보</th>
               <th>수량</th>
@@ -160,10 +212,19 @@ export default function CartPage() {
           </Thead>
           <Tbody>
             {cart.map((item) => (
-              <ItemRow item={item} key={item.id} />
+              <ItemRow
+                key={item.id}
+                item={item}
+                onChangeCheckBox={onChangeCheckBox}
+              />
             ))}
           </Tbody>
         </Table>
+        <div>
+          <DelteButton type="button" onClick={onClickDeleteButton}>
+            선택 상품 삭제
+          </DelteButton>
+        </div>
 
         <AmountBoxGruop>
           <AmountBox>
