@@ -26,7 +26,7 @@ export default function CartPage() {
 
   const cart = useSelector(get('cart'));
 
-  if (!cart) {
+  if (!(cart || []).length) {
     return (
       <Layout title="Cart">
         <Container>
