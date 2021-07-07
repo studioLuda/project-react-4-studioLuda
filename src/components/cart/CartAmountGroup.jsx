@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { currencyFomater, getSum, getPrices } from '../../util/commonUtils';
 import {
   AmountBoxGruop,
@@ -27,7 +28,9 @@ export default function CartAmountGroup({ cart }) {
           <span>{currencyFomater({ number: sumPrices + deliveryFee })}</span>
         </AmountBox>
       </AmountBoxGruop>
-      <OrderButton type="button"> 주문하기</OrderButton>
+      <OrderButton type="button">
+        <Link to="/order">주문하기</Link>
+      </OrderButton>
       <Notice> 30,000원 이하의 주문에는 배송비 3,000원이 추가됩니다.</Notice>
     </Container>
   );

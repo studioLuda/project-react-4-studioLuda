@@ -1,5 +1,6 @@
 import { fireEvent, render } from '@testing-library/react';
 import { useDispatch } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
 
 import CartContainer from './CartContainer';
 
@@ -13,7 +14,11 @@ describe('CartContainer', () => {
   });
 
   function renderCartContainer({ cart }) {
-    return render(<CartContainer cart={cart} />);
+    return render(
+      <MemoryRouter>
+        <CartContainer cart={cart} />
+      </MemoryRouter>,
+    );
   }
 
   it('renders cart container', () => {
