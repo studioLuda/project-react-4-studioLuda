@@ -29,32 +29,34 @@ const Tbody = styled.tbody`
   font-size: 14px;
 `;
 
+const ItemRowImg = styled.td({
+  maxWidth: '500px',
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-around',
+  alignItems: 'center',
+  '& img': {
+    margin: '10px',
+    width: '70px',
+  },
+});
+
 const ItemRow = styled.tr({
   height: '100px',
   marginTop: '10px',
   display: 'flow',
-  '& div': {
-    maxWidth: '500px',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    '& img': {
-      margin: '10px',
-      width: '70px',
-    },
-    '& p': {
-      width: '300px',
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      display: 'block',
-      color: '#333',
-      textDecoration: 'none',
-      textAlign: 'center',
-      fontWeight: 'bolder',
-    },
+  '& p': {
+    width: '300px',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    display: 'block',
+    color: '#333',
+    textDecoration: 'none',
+    textAlign: 'center',
+    fontWeight: 'bolder',
   },
+
 });
 
 const DelteButton = styled.button({
@@ -117,6 +119,7 @@ export {
   Tbody,
   DelteButton,
   ItemRow,
+  ItemRowImg,
   AmountBoxGruop,
   AmountBox,
   OrderButton,

@@ -31,15 +31,27 @@ const reducers = {
       cart,
     };
   },
-  changeCartItemCheked(state, { payload: { itemId, checked, cart } }) {
-    console.log('slice확인:', cart); // 현재 컴포넌트에 업데이트된 cart 값 (로컬스토리지에서 불러옴)
-    console.log('state확인:', state.cart); // -> 없음 cart가 store 업데이트 되지않음.
-    // FIXME! 일단 커밋하고, 리팩토링 하기 => 부모 컴포넌트에서 cart값 불러오고,
-    // 자식 컴포넌트에서 변경하는 로직 구현해볼 예정.
-    // 왜 이런 현상이 생기는지 잘 모르겠음. 질문하기.
+  changeCartItemAmount(state, { payload: { itemAmount, itemId } }) {
+    const { cart } = state;
 
-    console.log('itemId', itemId);
-    console.log('cheked', checked);
+    const index = cart.findIndex((item) => item.id === Number(itemId));
+    if (index > -1) {
+      const updatedItem = {
+        ...cart[index],
+        itemAmount,
+      };
+      const updatedCart = [...cart];
+      updatedCart[index] = updatedItem;
+
+      return {
+        ...state,
+        cart: updatedCart,
+      };
+    }
+    return state;
+  },
+  changeCartItemCheked(state, { payload: { itemId, checked } }) {
+    const { cart } = state;
 
     const index = cart.findIndex((item) => item.id === Number(itemId));
     if (index > -1) {
@@ -57,9 +69,8 @@ const reducers = {
     }
     return state;
   },
-  removeSelectedCartIem(state, { payload: cart }) {
-    console.log('slice확인:', cart);
-    console.log('state확인:', state.cart);
+  removeSelectedCartIem(state) {
+    const { cart } = state;
 
     const updatedCart = [...cart].filter((e) => !e.checked);
     saveObjItem('cart', updatedCart);
@@ -116,4 +127,5 @@ export const {
   synchonizeCart,
   changeCartItemCheked,
   removeSelectedCartIem,
+  changeCartItemAmount,
 } = actions;
