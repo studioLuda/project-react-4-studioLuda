@@ -1,4 +1,5 @@
 import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 
 import CartAmountGroup from './CartAmountGroup';
 
@@ -15,7 +16,11 @@ describe('CartAmountGroup', () => {
     },
   ];
   function renderCartAmountGroup() {
-    return render(<CartAmountGroup cart={cart} />);
+    return render(
+      <MemoryRouter>
+        <CartAmountGroup cart={cart} />
+      </MemoryRouter>,
+    );
   }
 
   it('renders cart table', () => {
