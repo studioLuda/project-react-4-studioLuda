@@ -1,6 +1,10 @@
 import { useDispatch } from 'react-redux';
 
-import { changeCartItemCheked, removeSelectedCartIem } from '../../redux/slice';
+import {
+  changeCartItemCheked,
+  removeSelectedCartIem,
+  changeCartItemAmount,
+} from '../../redux/slice';
 import CartItemTable from './CartItemsTable';
 import CartAmountGroup from './CartAmountGroup';
 import { Container } from '../../styles/CartPageStyle';
@@ -12,11 +16,15 @@ export default function CartContainer({ cart }) {
     const {
       target: { value: itemId, checked },
     } = event;
-    dispatch(changeCartItemCheked({ itemId, checked, cart }));
+    dispatch(changeCartItemCheked({ itemId, checked }));
   }
 
   function onClickDeleteButton() {
-    dispatch(removeSelectedCartIem(cart));
+    dispatch(removeSelectedCartIem());
+  }
+
+  function onChangeItemAmount({ itemAmount, itemId }) {
+    dispatch(changeCartItemAmount({ itemAmount, itemId }));
   }
 
   return (
@@ -25,6 +33,7 @@ export default function CartContainer({ cart }) {
         cart={cart}
         onClickDeleteButton={onClickDeleteButton}
         onChangeCheckBox={onChangeCheckBox}
+        onChangeItemAmount={onChangeItemAmount}
       />
       <CartAmountGroup cart={cart} />
     </Container>

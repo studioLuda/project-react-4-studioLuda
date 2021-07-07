@@ -1,17 +1,24 @@
 import { currencyFomater } from '../../util/commonUtils';
-import { ItemRow } from '../../styles/CartPageStyle';
+import { ItemRow, ItemRowImg } from '../../styles/CartPageStyle';
 
-export default function CartItemRow({ item, onChangeCheckBox }) {
+export default function CartItemRow({ item, onChangeCheckBox, onChangeItemAmount }) {
   const {
     id, name, img, itemAmount, realPrice, checked,
   } = item;
+  const checkBoxLabel = `cartItem${id}`;
+  const amountInputLabel = `item${id}Amount`;
+
+  function onChangeAmount(event) {
+    const { target: { value } } = event;
+    onChangeItemAmount({ itemAmount: value, itemId: id });
+  }
   return (
     <ItemRow>
       <td>
-        <label htmlFor={`cartItem${id}`}>
+        <label htmlFor={checkBoxLabel}>
           <input
-            aria-label={`cartItem${id}`}
-            id={`cartItem${id}`}
+            aria-label={checkBoxLabel}
+            id={checkBoxLabel}
             type="checkbox"
             name={id}
             value={id}
@@ -22,15 +29,23 @@ export default function CartItemRow({ item, onChangeCheckBox }) {
           />
         </label>
       </td>
+      <ItemRowImg>
+        <img src={img} alt={name} />
+        <p>{name}</p>
+      </ItemRowImg>
       <td>
-        <div>
-          <img src={img} alt={name} />
-          <p>{name}</p>
-        </div>
-      </td>
-      <td>
-        {itemAmount}
-        개
+        <label htmlFor={amountInputLabel}>
+          <input
+            aria-label={amountInputLabel}
+            id={amountInputLabel}
+            type="number"
+            value={itemAmount}
+            onChange={(event) => {
+              onChangeAmount(event);
+            }}
+          />
+          개
+        </label>
       </td>
       <td>{currencyFomater({ number: realPrice })}</td>
     </ItemRow>
