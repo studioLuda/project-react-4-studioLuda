@@ -6,6 +6,7 @@ import WorksPage from './pages/WorksPage';
 import ShopPage from './pages/ShopPage';
 import ShopItemDetailPage from './pages/ShopItemDetailPage';
 import CartPage from './pages/CartPage';
+import OrderPage from './pages/OrderPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 export default function App() {
@@ -18,7 +19,7 @@ export default function App() {
       <Route path="/shop/items/:id" component={ShopItemDetailPage} />
       <Route path="/shop/items/" component={ShopPage} />
       <Route path="/cart" component={CartPage} />
-      <Route path="/test" component={HomePage} />
+      <Route path="/order" component={OrderPage} />
       <Route component={NotFoundPage} />
     </Switch>
   );

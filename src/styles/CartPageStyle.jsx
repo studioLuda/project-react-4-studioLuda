@@ -98,17 +98,23 @@ const AmountBox = styled.div({
 
 const OrderButton = styled.button({
   backgroundColor: 'tomato',
-  color: 'white',
-  fontWeight: 'bold',
   marginTop: '60px',
   padding: '0.5rem 1rem',
   fontSize: '1rem',
-  textAlign: 'center',
-  textDecoration: 'none',
   display: 'inline-block',
   width: '50%',
   border: 'none',
   borderRadius: '4px',
+  '& a': {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    textDecoration: 'none',
+    '&:hover': {
+      color: '#000',
+      fontWeight: 'bold',
+    },
+  },
 });
 
 export {
