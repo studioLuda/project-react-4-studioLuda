@@ -7,7 +7,12 @@ import {
   Container,
 } from '../../styles/CartPageStyle';
 
-export default function CartItemTable({ cart, onChangeCheckBox, onClickDeleteButton }) {
+export default function CartItemTable({
+  cart,
+  onChangeCheckBox,
+  onClickDeleteButton,
+  onChangeItemAmount,
+}) {
   return (
     <Container>
       <Table>
@@ -34,6 +39,7 @@ export default function CartItemTable({ cart, onChangeCheckBox, onClickDeleteBut
               key={item.id}
               item={item}
               onChangeCheckBox={onChangeCheckBox}
+              onChangeItemAmount={onChangeItemAmount}
             />
           ))}
         </Tbody>
