@@ -6,7 +6,7 @@ import NaviLeftArea from './NaviLeftArea';
 import ContentsArea from './ContentsArea';
 
 const BodyArea = styled.main({
-  minWidth: '500px',
+  minWidth: '1200px',
   display: 'flex',
   flexDerection: 'row',
 });
